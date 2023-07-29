@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_state_management_starting/provider/count_provider.dart';
 import 'package:provider_state_management_starting/provider/example_one_provider.dart';
+import 'package:provider_state_management_starting/provider/favourite_provider.dart';
 import 'package:provider_state_management_starting/screen/count_example.dart';
 import 'package:provider_state_management_starting/screen/example_one.dart';
+import 'package:provider_state_management_starting/screen/favourite/favourite_screen.dart';
 import 'package:provider_state_management_starting/why_provider.dart';
 
 void main() {
@@ -24,6 +26,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => CountProvider()),
         ChangeNotifierProvider(create: (_) => ExampleOneProvider()),
+        ChangeNotifierProvider(create: (_) => FavouriteItemProvider()),
       ],
 
       child: MaterialApp(
@@ -32,7 +35,10 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: ExampleOneScreen(),
+
+        // main screen
+        home: const FavouriteScreen(),
+
       ),
     );
 
